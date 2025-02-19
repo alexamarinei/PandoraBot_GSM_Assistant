@@ -96,7 +96,7 @@
      <category>
       <pattern>tableta </pattern>
       <template>Inteleg.Ce problema preintampinati? Software sau hardware? 
-      <think><set name="topic">Raspunstableta</set></think>
+      <think><set name="topic">Tableta</set></think>
       </template>
         </category>
      
@@ -104,7 +104,7 @@
       <category>
           <pattern>laptop</pattern>
           <template>Inteleg.Ce problema preintampinati? Software sau hardware? 
-             <think><set name="topic">Raspunslaptop</set></think>
+             <think><set name="topic">Laptop</set></think>
           </template>
       </category>
       
@@ -342,7 +342,7 @@
           <template>
            Bine ati venit in sectiunea Apple! Imi puteti spune ce problema preintampinati mai exact?
             <ul>
-               <li>Se inchide telefonul</li>
+               <li>Se inchide tableta</li>
                <li>Se restarteaza constant</li>
                <li>Nu se deschide</li>
                <li>Se blocheaza frecvent</li>
@@ -643,7 +643,7 @@
                 
      
         
-          <topic name="tableta">
+          <topic name="Laptop">
      <category>
           <pattern>^  Hardware  ^</pattern>
           <template>
