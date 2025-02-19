@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  
+  <category>
+      <pattern>SALUT ^</pattern>
+      <template><srai>BUNA ^</srai></template>
+  </category>
+  
+  <category>
+      <pattern>HEI ^</pattern>
+      <template><srai>BUNA ^</srai></template>
+  </category>
+  
+  <category>
+    <pattern>BUNA ^</pattern>    
+    <template>Buna, cum te numesti?
+        <think><set name="topic">intro</set></think>
+    </template>
+  </category>
+  
+  
+  <topic name="intro">
+      <category>
+          <pattern>*</pattern>
+          <template>
+              <star/>, Bine ai venit!Numele meu este Gizmo.  Sunt BOT-ul reprezentant al firmei GSM.<br/>
+                Va pot ajuta cu ceva?
+                <think><set name="topic">Raspuns</set></think>
+          </template>
+      </category>
+  </topic>
+  
+  <topic name="Raspuns">
+      <category>
+          <pattern>Da</pattern>
+          <template>Excelent!  Cu de doriti sa va ajut mai exact?
+          <ul> 
+          <li>telefon</li>
+          <li>tableta</li>
+          <li>laptop</li>
+          <think><set name="topic">tipRamura</set></think>
+          </ul>
+         </template>
+      </category>
+      
+      <category>
+          
+           <pattern>Desigur</pattern>
+          <template>Excelent! Cu de doriti sa va ajut mai exact?
+          <ul> 
+          <li>telefon</li>
+          <li>tableta</li>
+          <li>laptop</li>
+          <think><set name="topic">tipRamura</set></think>
+          </ul>
+         </template>
+      </category>
+      
+      <category>
+          
+          <pattern>Desigur</pattern>
+          <template>Excelent!  Cu de doriti sa va ajut mai exact?
+          <ul> 
+          <li>telefon</li>
+          <li>tableta</li>
+          <li>laptop</li>
+          <think><set name="topic">tipRamura</set></think>
+          </ul>
+         </template>
+      </category>
+      <category>
+          
+          
+          <pattern>Nu</pattern>
+          <template>Am inteles.Va doresc o zi minunata!😍</template>
+      </category>
+  </topic>
+  
+  <topic name="tipRamura">
+      
+      <category>
+          <pattern>telefon</pattern>
+          <template>
+                Inteleg.Ce problema preintampinati? Software sau hardware? 
+              <ul>
+                  <li>Software</li>
+                  <li>Hardware</li>
+              </ul>
+              <think><set name="topic">telefon</set></think>
+          </template>
+      </category>
+      
+           
+     
+    
+     <category>
+      <pattern>tableta </pattern>
+      <template>Inteleg.Ce problema preintampinati? Software sau hardware? 
+      <think><set name="topic">Raspunstableta</set></think>
+      </template>
+        </category>
+     
+     
+      <category>
+          <pattern>laptop</pattern>
+          <template>Inteleg.Ce problema preintampinati? Software sau hardware? 
+             <think><set name="topic">Raspunslaptop</set></think>
+          </template>
+      </category>
+      
+      
+      
+      <category>
+          <pattern>*</pattern>
+          <template>Te rog sa raspunzi doar cu :"telefon","Tableta" sau "Laptop"(una dintre cele trei ramuri de mai sus).</template>
+      </category>
+      
+  </topic>
+  
+      <topic name="telefon">
+      <category>
+          <pattern>^  Software  ^</pattern>
+          <template>
+               Ce sistem de operare folositi?
+              <ul>
+                  <li>Apple</li>
+                  <li>Android</li>
+                  
+              </ul>
+    
+              </template>
+        </category>
+        
+        <category>
+            <pattern>Apple</pattern>
+            <template> Esti sigur/a ca doresti sa mergi pe acest sistem de operare? Daca da,tasteaza te rog din nou numele ramurii alese.
+                <think><set name="topic">Apple</set></think>
+                </template>
+        </category>
+        
+        <category>
+            <pattern>Android</pattern>
+            <template>
+                Esti sigur/a ca doresti sa mergi pe acest sistem de operare? Daca da,tasteaza te rog din nou numele ramurii alese.
+                <think><set name="topic">Android</set></think>
+                </template>
+        </category>
+        
+        </topic>
+   
+               
+     <topic name="Apple">
+       <category>
+          <pattern>Apple</pattern>
+          <template>
+           Bine ati venit in sectiunea Apple! Imi puteti spune ce problema preintampinati mai exact?
+            <ul>
+               <li>Se inchide telefonul</li>
+               <li>Se restarteaza constant</li>
+               <li>Nu se deschide</li>
+               <li>Se blocheaza frecvent</li>
+           </ul>
+           <think><set name="topic">elementeApple</set></think>
+          </template>
+      </category>
+        </topic>
+      <topic name="elementeApple">
+         <category>
+              
+              <pattern>Se inchide telefonul</pattern>
+              <template>Problema ar fi de la un Scurt circuit pe placa de baza sau telefonul dumneavoastra a intrat intr-un soc termic sau sistemul de operare este corupt
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://geekchronicles.ro/de-ce-se-inchide-telefonul-singur-brusc-fara-avertisment/</url>
+              </link>
+
+              </template>
+            </category>
+            
+            <category>
+                <pattern>Se restarteaza constant</pattern>
+              <template>Problemele in cauza ar fi urmatoarele :Software-ul ar putea fi corupt/Telefonul ar putea intra in loop din cauza unui update de soft si bateria a fost sub 30%
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://omulbun.com/de-ce-dispozitivul-meu-android-se-inchide-sau-se-restarteaza/</url>
+              </link>
+                 </template>
+            </category>
+            
+            <category>
+                <pattern>Nu se deschide</pattern>
+              <template>Problemele in general sunt cauzate de lipsa bateriei/Sistem corupt/Sau un soc termic si in acest caz
+                 
+                 <link>
+                     <text>Mai multe detalii aici</text>
+                     <url>https://macrotehnicus.ro/ce-faci-cand-telefonul-nu-se-mai-deschide/</url>
+                 </link>
+                 </template>
+            </category>
+            
+              <category>
+                <pattern>Se blocheaza frecvent</pattern>
+              <template>Solutia pe care vi-o pot sugera o puteti gasi pe acest site: <link>https://www.androidro.ro/telefonul-mai-deschide-iata-trebui-faci/</link>
+                 </template>
+            </category>
+            </topic>
+       
+         
+   
+    
+     
+      
+        
+        <topic name="Android">
+       <category>
+          <pattern>Android</pattern>
+          <template>
+           Bine ati venit in sectiunea Android! Imi puteti spune ce problema preintampinati mai exact?
+            <ul>
+               <li>Se inchide telefonul</li>
+               <li>Se restarteaza constant</li>
+               <li>Nu se deschide</li>
+               <li>Se blocheaza frecvent</li>
+           </ul>
+           <think><set name="topic">elementeAndroid</set></think>
+          </template>
+      </category>
+        </topic>
+      <topic name="elementeAndroid">
+         <category>
+              
+              <pattern>Se inchide telefonul</pattern>
+              <template>Problema ar fi de la un Scurt circuit pe placa de baza sau telefonul dumneavoastra a intrat intr-un soc termic sau sistemul de operare este corupt
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://geekchronicles.ro/de-ce-se-inchide-telefonul-singur-brusc-fara-avertisment/</url>
+              </link>
+
+              </template>
+            </category>
+            
+            <category>
+                <pattern>Se restarteaza constant</pattern>
+              <template>Problemele in cauza ar fi urmatoarele :Software-ul ar putea fi corupt/Telefonul ar putea intra in loop din cauza unui update de soft si bateria a fost sub 30%
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://omulbun.com/de-ce-dispozitivul-meu-android-se-inchide-sau-se-restarteaza/</url>
+              </link>
+                 </template>
+            </category>
+            
+            <category>
+                <pattern>Nu se deschide</pattern>
+              <template>Problemele in general sunt cauzate de lipsa bateriei/Sistem corupt/Sau un soc termic si in acest caz
+                 
+                 <link>
+                     <text>Mai multe detalii aici</text>
+                     <url>https://macrotehnicus.ro/ce-faci-cand-telefonul-nu-se-mai-deschide/</url>
+                 </link>
+                 </template>
+            </category>
+            
+              <category>
+                <pattern>Se blocheaza frecvent</pattern>
+              <template>Solutia pe care vi-o pot sugera o puteti gasi pe acest site: <link>https://www.androidro.ro/telefonul-mai-deschide-iata-trebui-faci/</link>
+                 </template>
+            </category>
+            </topic>
+        
+        
+   <topic name="telefon">
+     <category>
+          <pattern>^  Hardware  ^</pattern>
+          <template>
+            Inteleg.Ce problema aveti?Cu displayul/bateria/touch?
+              <ul>
+                  <li>Displayul</li>
+                  <li>Bateria</li>
+                  <li>Touch</li>
+              </ul>
+              </template>
+        </category>
+        
+        <category>
+            <pattern>Displayul</pattern>
+            <template>
+               Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 3 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+        
+         <category>
+            <pattern>Bateria</pattern>
+            <template>
+               Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 5 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+        
+        <category>
+            <pattern>Touch</pattern>
+            <template>
+                Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 5 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+    </topic>
+    
+    
+         <topic name="tableta">
+           <category>
+          <pattern>^  Software  ^</pattern>
+          <template>
+               Ce sistem de operare folositi?
+              <ul>
+                  <li>Apple</li>
+                  <li>Android</li>
+                  
+              </ul>
+    
+              </template>
+        </category>
+        
+        <category>
+            <pattern>Apple</pattern>
+            <template> Esti sigur/a ca doresti sa mergi pe acest sistem de operare? Daca da,tasteaza te rog din nou numele ramurii alese.
+                <think><set name="topic">Applee</set></think>
+                </template>
+        </category>
+        
+        <category>
+            <pattern>Android</pattern>
+            <template>
+                Esti sigur/a ca doresti sa mergi pe acest sistem de operare? Daca da,tasteaza te rog din nou numele ramurii alese.
+                <think><set name="topic">Androidd</set></think>
+                </template>
+        </category>
+        
+        </topic>
+   
+               
+     <topic name="Applee">
+       <category>
+          <pattern>Apple</pattern>
+          <template>
+           Bine ati venit in sectiunea Apple! Imi puteti spune ce problema preintampinati mai exact?
+            <ul>
+               <li>Se inchide telefonul</li>
+               <li>Se restarteaza constant</li>
+               <li>Nu se deschide</li>
+               <li>Se blocheaza frecvent</li>
+           </ul>
+           <think><set name="topic">elementeApplee</set></think>
+          </template>
+      </category>
+        </topic>
+      <topic name="elementeApplee">
+         <category>
+              
+              <pattern>Se inchide telefonul</pattern>
+              <template>Problema ar fi de la un Scurt circuit pe placa de baza sau telefonul dumneavoastra a intrat intr-un soc termic sau sistemul de operare este corupt
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://geekchronicles.ro/de-ce-se-inchide-telefonul-singur-brusc-fara-avertisment/</url>
+              </link>
+
+              </template>
+            </category>
+            
+            <category>
+                <pattern>Se restarteaza constant</pattern>
+              <template>Problemele in cauza ar fi urmatoarele :Software-ul ar putea fi corupt/Telefonul ar putea intra in loop din cauza unui update de soft si bateria a fost sub 30%
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://omulbun.com/de-ce-dispozitivul-meu-android-se-inchide-sau-se-restarteaza/</url>
+              </link>
+                 </template>
+            </category>
+            
+            <category>
+                <pattern>Nu se deschide</pattern>
+              <template>Problemele in general sunt cauzate de lipsa bateriei/Sistem corupt/Sau un soc termic si in acest caz
+                 
+                 <link>
+                     <text>Mai multe detalii aici</text>
+                     <url>https://macrotehnicus.ro/ce-faci-cand-telefonul-nu-se-mai-deschide/</url>
+                 </link>
+                 </template>
+            </category>
+            
+              <category>
+                <pattern>Se blocheaza frecvent</pattern>
+              <template>Solutia pe care vi-o pot sugera o puteti gasi pe acest site: <link>https://www.androidro.ro/telefonul-mai-deschide-iata-trebui-faci/</link>
+                 </template>
+            </category>
+            </topic>
+       
+         
+        <topic name="Androidd">
+       <category>
+          <pattern>Android</pattern>
+          <template>
+           Bine ati venit in sectiunea Android! Imi puteti spune ce problema preintampinati mai exact?
+            <ul>
+               <li>Se inchide telefonul</li>
+               <li>Se restarteaza constant</li>
+               <li>Nu se deschide</li>
+               <li>Se blocheaza frecvent</li>
+           </ul>
+           <think><set name="topic">elementeAndroidd</set></think>
+          </template>
+      </category>
+        </topic>
+      <topic name="elementeAndroidd">
+         <category>
+              
+              <pattern>Se inchide telefonul</pattern>
+              <template>Problema ar fi de la un Scurt circuit pe placa de baza sau telefonul dumneavoastra a intrat intr-un soc termic sau sistemul de operare este corupt
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://geekchronicles.ro/de-ce-se-inchide-telefonul-singur-brusc-fara-avertisment/</url>
+              </link>
+
+              </template>
+            </category>
+            
+            <category>
+                <pattern>Se restarteaza constant</pattern>
+              <template>Problemele in cauza ar fi urmatoarele :Software-ul ar putea fi corupt/Telefonul ar putea intra in loop din cauza unui update de soft si bateria a fost sub 30%
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://omulbun.com/de-ce-dispozitivul-meu-android-se-inchide-sau-se-restarteaza/</url>
+              </link>
+                 </template>
+            </category>
+            
+            <category>
+                <pattern>Nu se deschide</pattern>
+              <template>Problemele in general sunt cauzate de lipsa bateriei/Sistem corupt/Sau un soc termic si in acest caz
+                 
+                 <link>
+                     <text>Mai multe detalii aici</text>
+                     <url>https://macrotehnicus.ro/ce-faci-cand-telefonul-nu-se-mai-deschide/</url>
+                 </link>
+                 </template>
+            </category>
+            
+              <category>
+                <pattern>Se blocheaza frecvent</pattern>
+              <template>Solutia pe care vi-o pot sugera o puteti gasi pe acest site: <link>https://www.androidro.ro/telefonul-mai-deschide-iata-trebui-faci/</link>
+                 </template>
+            </category>
+            </topic>
+                
+                
+     
+        
+          <topic name="tableta">
+     <category>
+          <pattern>^  Hardware  ^</pattern>
+          <template>
+            Inteleg.Ce problema aveti?Cu displayul/bateria/touch?
+              <ul>
+                  <li>Displayul</li>
+                  <li>Bateria</li>
+                  <li>Touch</li>
+              </ul>
+              </template>
+        </category>
+        
+        <category>
+            <pattern>Displayul</pattern>
+            <template>
+               Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 3 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+        
+         <category>
+            <pattern>Bateria</pattern>
+            <template>
+               Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 5 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+        
+        <category>
+            <pattern>Touch</pattern>
+            <template>
+                Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 5 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+    </topic>
+    
+    
+   <topic name="Laptop">
+           <category>
+          <pattern>^  Software  ^</pattern>
+          <template>
+               Ce sistem de operare folositi?
+              <ul>
+                  <li>Windows</li>
+                  <li>Linux</li>
+                  
+              </ul>
+    
+              </template>
+        </category>
+        
+        <category>
+            <pattern>Windows</pattern>
+            <template> Esti sigur/a ca doresti sa mergi pe acest sistem de operare? Daca da,tasteaza te rog din nou numele ramurii alese.
+                <think><set name="topic">Windows</set></think>
+                </template>
+        </category>
+        
+        <category>
+            <pattern>Linux</pattern>
+            <template>
+                Esti sigur/a ca doresti sa mergi pe acest sistem de operare? Daca da,tasteaza te rog din nou numele ramurii alese.
+                <think><set name="topic">Linux</set></think>
+                </template>
+        </category>
+        
+        </topic>
+   
+               
+     <topic name="Windows">
+       <category>
+          <pattern>Windows</pattern>
+          <template>
+           Bine ati venit in sectiunea Windows! Imi puteti spune ce problema preintampinati mai exact?
+            <ul>
+               <li>Se inchide Laptopul</li>
+               <li>Se restarteaza constant</li>
+               <li>Nu se deschide</li>
+               <li>Se blocheaza frecvent</li>
+           </ul>
+           <think><set name="topic">elementeWindows</set></think>
+          </template>
+      </category>
+        </topic>
+      <topic name="elementeWindows">
+         <category>
+              
+              <pattern>Se inchide Laptopul</pattern>
+              <template>Supraincalzirea este cea mai frecventa cauza pentru aceasta problema.Aceasta problema apare des cand laptopul dumneavoastra nu face fata la toate procesele:
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://www.onlaptop.ro/blog/post/ce-sa-faci-daca-laptopul-se-inchide-singur//</url>
+              </link>
+
+              </template>
+            </category>
+            
+            <category>
+                <pattern>Se restarteaza constant</pattern>
+              <template>Fie e HDD-ul cu probleme(bad-uri) caz in care va recomand sa faceti un scan cu HD TUNE, fie ventilatoarele de pe procesor/placa grafica sunt pline de praf/par samd si  blocheaza ventilatia, caz in care recomand sa instalati AIDA 64 si sa verifici temperatura componentelor(asta daca poti intra in safe mode cumva). 
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://www.mygarage.ro/pc-mechanics/351059-problema-laptop-lenovo-se-restarteaza-continuu.html</url>
+              </link>
+                 </template>
+            </category>
+            
+            <category>
+                <pattern>Nu se deschide</pattern>
+              <template>Solutiile pentru aceasta problema sunt:Verificati daca se alimenteaza in mod corespunzator/ Booteaza in Safe Mode/erifica daca nu exista componente defecte sau incompatibile.
+                 
+                 <link>
+                     <text>Mai multe detalii aici</text>
+                     <url>https://www.onlaptop.ro/blog/post/nu-se-mai-aprinde-laptopul-5-lucruri-pe-care-sa-le-faci-acum</url>
+                 </link>
+                 </template>
+            </category>
+            
+              <category>
+                <pattern>Se blocheaza frecvent</pattern>
+              <template>Ca si in multe alte cauze..fizic vorbind laptopul se poate supraincalzi din cauza prafului sau a diferitelor materiale intrate in cooler 
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>http://blog.pcmadd.com/ce-trebuie-sa-faci-daca-laptopul-tau-se-blocheaza/</url>
+              </link>
+                 </template>
+            </category>
+            </topic>
+       
+         
+        <topic name="Linux">
+       <category>
+          <pattern>Linux</pattern>
+          <template>
+           Bine ati venit in sectiunea Linux! Imi puteti spune ce problema preintampinati mai exact?
+            <ul>
+               <li>Se inchide Laptopul</li>
+               <li>Se restarteaza constant</li>
+               <li>Nu se deschide</li>
+               <li>Se blocheaza frecvent</li>
+           </ul>
+           <think><set name="topic">elementeLinux</set></think>
+          </template>
+      </category>
+        </topic>
+      <topic name="elementeLinux">
+         <category>
+              
+              <pattern>Se inchide Laptopul</pattern>
+              <template>Supraincalzirea este cea mai frecventa cauza pentru aceasta problema.Aceasta problema apare des cand laptopul dumneavoastra nu face fata la toate procesele:
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://www.onlaptop.ro/blog/post/ce-sa-faci-daca-laptopul-se-inchide-singur//</url>
+              </link>
+
+              </template>
+            </category>
+            
+            <category>
+                <pattern>Se restarteaza constant</pattern>
+              <template>Fie e HDD-ul cu probleme(bad-uri) caz in care va recomand sa faceti un scan cu HD TUNE, fie ventilatoarele de pe procesor/placa grafica sunt pline de praf/par samd si  blocheaza ventilatia, caz in care recomand sa instalati AIDA 64 si sa verifici temperatura componentelor(asta daca poti intra in safe mode cumva). 
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>https://www.mygarage.ro/pc-mechanics/351059-problema-laptop-lenovo-se-restarteaza-continuu.html</url>
+              </link>
+                 </template>
+            </category>
+            
+            <category>
+                <pattern>Nu se deschide</pattern>
+              <template>Solutiile pentru aceasta problema sunt:Verificati daca se alimenteaza in mod corespunzator/ Booteaza in Safe Mode/erifica daca nu exista componente defecte sau incompatibile.
+                 
+                 <link>
+                     <text>Mai multe detalii aici</text>
+                     <url>https://www.onlaptop.ro/blog/post/nu-se-mai-aprinde-laptopul-5-lucruri-pe-care-sa-le-faci-acum</url>
+                 </link>
+                 </template>
+            </category>
+            
+              <category>
+                <pattern>Se blocheaza frecvent</pattern>
+              <template>Ca si in multe alte cauze..fizic vorbind laptopul se poate supraincalzi din cauza prafului sau a diferitelor materiale intrate in cooler 
+              <link>
+                  <text>Mai multe detalii aici</text>
+                  <url>http://blog.pcmadd.com/ce-trebuie-sa-faci-daca-laptopul-tau-se-blocheaza/</url>
+              </link>
+                 </template>
+            </category>
+            </topic>
+                
+     
+        
+          <topic name="tableta">
+     <category>
+          <pattern>^  Hardware  ^</pattern>
+          <template>
+            Inteleg.Ce problema aveti?Cu displayul/bateria/touch?
+              <ul>
+                  <li>Displayul</li>
+                  <li>Bateria</li>
+                  <li>Touch</li>
+              </ul>
+              </template>
+        </category>
+        
+        <category>
+            <pattern>Displayul</pattern>
+            <template>
+               Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 3 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+        
+         <category>
+            <pattern>Bateria</pattern>
+            <template>
+               Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 5 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+        
+        <category>
+            <pattern>Touch</pattern>
+            <template>
+                Inteleg.Solutia pe care vi-o propun este sa lasati telefonul in service-ul nostru 5 zile lucratoare.In acest timp noi putem pune diagnoza si sa rezolvam problema.
+                </template>
+        </category>
+    </topic>
+        
+     
+      
+       
+        </aiml>
